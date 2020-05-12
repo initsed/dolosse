@@ -38,6 +38,7 @@ pylint:
 
 flake8:
   stage: lint
+  allow_failure: true
   script:
   - flake8 --max-line-length=130 dolosse/
   - echo "flake8-linted!"
