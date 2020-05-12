@@ -40,14 +40,15 @@ class KafkaConsumer(threading.Thread):
                                           'auto_commit_interval_ms']})
         except Exception as ex:
             logging.exception("Problems encountered when starting the consumer", ex)
-            #pass
+            # pass
+
 
     def run(self):
         logging.info("Started")
         self.consumer.subscribe([self.cfg['consumer']['topic']])
 
-        #timeouts = records = 0
-        #messages__in_interval = errors_in_interval = 0
+        # timeouts = records = 0
+        # messages__in_interval = errors_in_interval = 0
         idle_time_in_interval = 0
         stats_interval_start_time = time.time()
         message_processing_times = []
