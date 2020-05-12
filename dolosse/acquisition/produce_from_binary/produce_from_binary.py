@@ -15,6 +15,7 @@ from confluent_kafka import Producer
 import constants.data as data
 from data_formats.pld import header
 
+
 def delivery_report(err, msg):
     """ Called once for each message produced to indicate delivery result.
         Triggered by poll() or flush(). """
@@ -33,7 +34,7 @@ if __name__ == '__main__':
 
     FILES = [
         # 'D:/data/svp/kafka-tests/kafka-data-test-0.pld',
-         'D:/data/svp/kafka-tests/bagel-single-spill-1.pld',
+        'D:/data/svp/kafka-tests/bagel-single-spill-1.pld',
         #    'D:/data/utk/pixieworkshop/pulser_003.ldf',
         # 'D:/data/ithemba/bagel/runs/runBaGeL_337.pld',
         #    'D:/data/anl/vandle2015/a135feb_12.ldf'

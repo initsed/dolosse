@@ -1,0 +1,64 @@
+#image: python:3.7-alpine
+
+# seems we might be ahead of our CI/CD with matrices
+#matrix:
+#  image:
+#    python3.5: python:3.5-alpine
+#    python3.6: python:3.6-alpine
+#    python3.7: python:3.7-alpine
+
+stages:
+  - setup
+  - build
+  - lint
+  - test
+  - deploy
+
+setup:
+  stage: setup
+  #matrix: {}
+  script: 
+  - python3 --version
+  - echo "Setup!"
+
+build:
+  stage: build
+  script: 
+  - pip3 install -r requirements.txt --user
+  - echo "Built!"
+  dependencies:
+    - setup
+
+pylint:
+  stage: lint
+  allow_failure: true
+  script: 
+  - pylint -d C0301 dolosse/
+  - echo "PyLinted!"
+
+flake8:
+  stage: lint
+  allow_failure: true
+  script:
+  - flake8 --max-line-length=130 dolosse/
+  - echo "flake8-linted!"
+
+test:
+  stage: test
+  script: 
+  - pytest dolosse/
+  - echo "Tested!"
+  dependencies:
+    - build
+
+deploy:
+  stage: deploy
+  #matrix: {}
+  script: 
+  # do deployment stuff
+  - echo "Deployed!"
+  dependencies:
+    - build
+    - test
+  only:
+  - master

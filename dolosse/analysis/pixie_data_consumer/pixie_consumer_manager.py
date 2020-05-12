@@ -7,7 +7,7 @@ date: January 01, 2019
 import logging
 import signal
 import time
-from logging.config import dictConfig
+# from logging.config import dictConfig
 
 import yaml
 
@@ -56,9 +56,9 @@ if __name__ == '__main__':
     except (KeyboardInterrupt, SystemExit, InterruptedError):
         shutdown_threads(threads)
     except yaml.scanner.ScannerError as err:
-        logging.exception('consumer.py ran into an issue loading the YAML config.')
+        logging.exception('consumer.py ran into an issue loading the YAML config.', err)
         exit(1)
     except ValueError as err:
-        logging.exception('consumer.py caught a value error while loading the config')
+        logging.exception('consumer.py caught a value error while loading the config', err)
         exit(1)
     logging.info("See you space cowboy!")
