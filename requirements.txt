@@ -2,3 +2,7 @@ pyyaml
 confluent-kafka
 pyarrow
 pandas
+cython
+pytest
+pylint
+flake8
