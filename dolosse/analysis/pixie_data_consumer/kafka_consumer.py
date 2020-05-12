@@ -42,7 +42,6 @@ class KafkaConsumer(threading.Thread):
             logging.exception("Problems encountered when starting the consumer", ex)
             # pass
 
-
     def run(self):
         logging.info("Started")
         self.consumer.subscribe([self.cfg['consumer']['topic']])
