@@ -61,11 +61,11 @@ def decode_word_two(word, mask):
     return {
         'event_time_high': (word & mask.event_time_high()[0]) >> mask.event_time_high()[1],
         'cfd_fractional_time': (word & mask.cfd_fractional_time()[0]) >>
-                               mask.cfd_fractional_time()[1],
+                             mask.cfd_fractional_time()[1],
         'cfd_trigger_source_bit': (word & mask.cfd_trigger_source()[0]) >>
-                                  mask.cfd_trigger_source()[1],
+                                mask.cfd_trigger_source()[1],
         'cfd_forced_trigger_bit': (word & mask.cfd_forced_trigger()[0]) >>
-                                  mask.cfd_forced_trigger()[1]
+                                mask.cfd_forced_trigger()[1]
     }
 
 
