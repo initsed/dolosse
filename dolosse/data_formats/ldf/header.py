@@ -8,6 +8,7 @@ import struct
 
 import dolosse.constants.data as data
 
+
 class LdfHeader:
     """
     Defines a structure that reads the header information from a ORNL HEAD buffer
