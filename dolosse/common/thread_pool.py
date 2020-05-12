@@ -1,3 +1,9 @@
+"""
+file: thread_pool.py
+brief: ...
+author: S. V. Paulauskas
+date: January 27, 2019
+"""
 from queue import Queue
 from threading import Thread
 
@@ -16,9 +22,9 @@ class Worker(Thread):
             func, args, kargs = self.tasks.get()
             try:
                 func(*args, **kargs)
-            except Exception as e:
+            except Exception as ex:
                 # An exception happened in this thread
-                print(e)
+                print(ex)
             finally:
                 # Mark this task as done, whether an exception happened or not
                 self.tasks.task_done()
