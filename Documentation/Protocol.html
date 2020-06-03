@@ -9,7 +9,7 @@
 
 <p>Thirdly, there will be a control program, used to control the equipment used in the experiment. This program will read its instructions from a dedicated Kafka topic and will follow them. These instructions will take the form of either setting the values for various setup parameters, or starting certain predefined actions (such as starting the experiment as the whole, pausing the experiment, or starting a calibration routine). Note that a control program may also be a producer of certain data, such as error messages or status updates; these would be produced to a separate topic under the data producer protocol.</p>
 
-<p>Fourthly and finally, there is the user interface component. This component will connect to Kafka, read the data from the various data producers, display it on-screen in a manner understandable to the user, and (if necessary) send messages to the control program to set certain variables or start certain actions.</p>
+<p>Finally, there is the user interface component. This component will connect to Kafka, read the data from the various data producers, display it on-screen in a manner understandable to the user, and (if necessary) send messages to the control program to set certain variables or start certain actions.</p>
 
 <p>This document is concerned only with the format of the data read and written by the user interface component.</p>
 
@@ -27,7 +27,7 @@
 <p>{"Data": [{"Name": "Dose_Data", "NumChannels": 17}, "NetMCA_Data", {"Name": "Pixie_Data", "Location": "Lab A"}], "Control":["Experiment_Control"]}
 {"Data": ["Dose_Data", "NetMCA_Data", "Pixie_Data"], "Control":["Experiment_Control"]}</p>
 
-<h2>Data Producer Data</h2>
+<h2>Producer's Data</h2>
 
 <p>The data as produced by the data producers consists of a number of data variables and their values, in a JSON object. These values may be of numeric, string, or boolean type; alternatively, they may themselves be JSON objects containing further sub-variables in a hierarchical manner. A single update contains data that is related to the rest of the data in the upgrade; for example, if there is a "Time" field in the update, then the other variables are all assumed to have been measured (if appropriate) at the given time.</p>
 
