@@ -1,6 +1,8 @@
 pyyaml
+colorama
 confluent-kafka
 pyarrow
+PyInquirer
 pandas
 cython
 pytest
